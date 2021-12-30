@@ -6,7 +6,7 @@ import pandas as pd
 
 
 class BoasVindasService():
-    
+
     def __init__(self):
         logger.debug(mensagens.INICIO_LOAD_SERVICO)
         self.load_servico()
@@ -33,7 +33,7 @@ class BoasVindasService():
         df_response['predict'] = response_predicts
 
         df_response = df_response.drop(columns=['textoMensagem'])
-        
+
         response = {
                      "listaNomes": json.loads(df_response.to_json(
                                                                             orient='records', force_ascii=False))}
