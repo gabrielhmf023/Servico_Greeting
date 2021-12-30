@@ -3,6 +3,7 @@ USER root
 
 RUN pip install --no-cache-dir --upgrade pip==20.2.3
 RUN pip install --no-cache-dir --upgrade setuptools==50.3.0
+RUN pip install arrow
 
 ENV VERSAO=1.0.1 \
     CMAKE_C_COMPILER=/usr/bin/gcc \

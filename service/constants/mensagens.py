@@ -1,3 +1,5 @@
+import arrow
+
 # Mensagens log API
 INICIO_LOAD_SERVICO = "Carregando o serviço..."
 FIM_LOAD_SERVICO = "Serviço carregado."
@@ -15,5 +17,5 @@ ERROR_KEY = 'Chave incorreta'
 
 # Sucess Business #
 SUCESSO_GET = "Classificador OK."
-SUCESSO_PREDICT = "Saudaçao realizada com sucesso."
+SUCESSO_PREDICT = "Saudaçao realizada com sucesso. DATA: " + arrow.utcnow().format('DD/MM/YYYY')
 SUCESSO_ENDPOINT = "Endpoints funcionando"

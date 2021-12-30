@@ -3,6 +3,7 @@ import json
 from loguru import logger
 from service.constants import mensagens
 import pandas as pd
+import arrow 
 
 
 class BoasVindasService():
@@ -19,23 +20,20 @@ class BoasVindasService():
         logger.debug(mensagens.FIM_LOAD_SERVICO)
 
     def executar_rest(self, texts):
-        response = {}
 
         logger.debug(mensagens.INICIO_SERVICO)
         start_time = time.time()
 
-        response_predicts = [text.upper() for text in ['textoMensagem']]
+        response_predicts = [text.upper() for text in texts['Nome']]
+        response_saudacao = [text.upper() for text in ['Olá']]
+        response_dia = [text.upper() for text in ['Tenha um bom dia!']]
 
         logger.debug(mensagens.FIM_SERVICO)
-        logger.debug(f"Fim de todas as predições em {time.time()-start_time}")
+        logger.debug(f"Fim de todas as tarefas em {time.time()-start_time}")
 
-        df_response = pd.DataFrame(texts, columns=['textoMensagem'])
-        df_response['predict'] = response_predicts
+        df_response = pd.DataFrame(texts, columns=['Nome'])
+        df_response['Nome'] = response_predicts
 
-        df_response = df_response.drop(columns=['textoMensagem'])
+        df_response = df_response.drop(columns=['Nome'])
 
-        response = {
-                     "listaNomes": json.loads(df_response.to_json(
-                                                                            orient='records', force_ascii=False))}
-
-        return response
+        return response_saudacao, response_predicts ,response_dia
