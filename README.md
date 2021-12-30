@@ -1,4 +1,4 @@
-### Exemplo de Readme para o seu projeto
+###Readme
 
 # api-servico
 
@@ -22,5 +22,6 @@ docker-compose up
 ## Authors
 
 * **Patrick Luiz** - *Initial work*
+* **Gabriel Henrique**
 
 ## Exemplo de template copiado de: https://gist.github.com/PurpleBooth/109311bb0361f32d87a2
